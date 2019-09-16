@@ -117,7 +117,7 @@ def query_postgrad_data(start_year, term):
                 general_data = {
                     "identifier": identifier,
                     "code": code,
-                    "holder_school": sanit(holder_school.split(')')[-1]),
+                    "holder_school": sanit(holder_school)[5:],
                     "name": name,
                     "year": year,
                     "term": term,
@@ -154,7 +154,6 @@ def query_postgrad_data(start_year, term):
                     else:
                         classroom = arr_info[5]
                     classroom = classroom.replace('教学一楼', '教一楼')
-                    print("获得教室 " + classroom)
 
                     sessions = []
                     for i in range(int(arr_info[3]), int(arr_info[4]) + 1):
@@ -167,6 +166,8 @@ def query_postgrad_data(start_year, term):
                         "campus": sanit(campus),
                         'classroom': sanit(classroom).split('/')[-1].replace(')', '').replace('(', '')
                     })
+
+                    print("获得教室 ", new_obj['classroom'])
 
                     weeks = []
                     if odd_even_flag == 0:
