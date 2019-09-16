@@ -16,6 +16,14 @@ def sanit(s):
     return s.replace('\xa0', '')
 
 
+QUICK_MODE = True
+
+if QUICK_MODE:
+    campus_list = [1, 2, 3, 5]
+else:
+    campus_list = list(range(1, 9))
+
+
 def parse_leaf(item, params):
     if item.xpath(params) != []:
         return item.xpath(params)[0].text
@@ -62,7 +70,7 @@ def query_postgrad_data(start_year, term):
 
     result_array = []
 
-    for camp in range(1, 9):
+    for camp in [1, 2, 3, 5]:
         for school in school_id:
             postParams = {'XQDM': str(start_year) + month_tbl[term],
                           'xiaoqu': str(camp),
