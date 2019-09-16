@@ -7,9 +7,13 @@ import os
 import json
 import urllib
 import requests
-
+import pprint
 from lxml import etree
 from time import sleep
+
+
+def sanit(s):
+    return s.replace('\xa0', '')
 
 
 def parse_leaf(item, params):
@@ -70,12 +74,12 @@ def query_postgrad_data(start_year, term):
             # print("Params: ")
             print(postParams)
 
-            sleep(2)
+            sleep(1.5)
             # Sleep 2 seconds before call .post
 
             requestUrl = session.post(queryUrl, data=postParams)
 
-            sleep(2)
+            sleep(1.5)
             # Sleep 2 seconds before call .get
             #
 
@@ -91,28 +95,37 @@ def query_postgrad_data(start_year, term):
                     print("Throw up one piece.")
                     continue
 
-                part = {}
-                part['identifier'] = parse_leaf(item, 'td[1]/div/a')
-
-                part['holder_school'] = parse_leaf(item, 'td[7]/div')
-                part['name'] = parse_leaf(
-                    item, 'td[2]/div/a').split(part['identifier'])[0]
-                part['year'] = start_year
-                part['term'] = term
-                part['target_grade'] = 0
-                part['teacher'] = parse_leaf(item, 'td[6]/div/a')
-                part['teacher_title'] = ""
+                identifier = parse_leaf(item, 'td[1]/div/a')
+                code = identifier
+                holder_school = parse_leaf(item, 'td[7]/div')
+                name = parse_leaf(
+                    item, 'td[2]/div/a').split(identifier)[0]
+                year = start_year
+                term = term
+                target_grade = 0
+                teacher = parse_leaf(item, 'td[6]/div/a')
                 language = parse_leaf(item, 'td[5]/div')
-                part['credit'] = float(parse_leaf(item, 'td[4]/div'))
+                credit = float(parse_leaf(item, 'td[4]/div'))
 
-                part['odd_week'] = []
-                part['even_week'] = []
-                part['notes'] = "授课语言：" + language + \
+                notes = "授课语言：" + language + \
                     "。" + parse_leaf(item, 'td[12]/div')
-                part['student_number'] = int(parse_leaf(item, 'td[10]/div'))
+                student_number = int(parse_leaf(item, 'td[10]/div'))
 
                 campus = parse_leaf(item, 'td[8]/div')
                 arrangement = parse_leaf(item, 'td[9]/div')
+
+                general_data = {
+                    "identifier": identifier,
+                    "code": code,
+                    "holder_school": sanit(holder_school.split(')')[-1]),
+                    "name": name,
+                    "year": year,
+                    "term": term,
+                    "target_grade": target_grade,
+                    "teacher": teacher,
+                    "credit": credit,
+                    "student_number": student_number
+                }
 
                 arrs = arrangement.split(' ')
                 for arr in arrs:
@@ -133,46 +146,52 @@ def query_postgrad_data(start_year, term):
                         # Skip this bad loop
                         continue
 
-                    if int(arr_info[0]) + int(arr_info[1]) > 10:
-                        part['start_week'] = int(arr_info[0])
-                        part['end_week'] = int(arr_info[1])
-                    else:
-                        if term == 3:
-                            part['start_week'] = int(arr_info[0]) + 18
-                            part['end_week'] = int(arr_info[1]) + 18
-                            print("Relocate week to %d - %d" %
-                                  (int(arr_info[0]) + 18, int(arr_info[1]) + 18))
-                        else:
-                            part['start_week'] = int(arr_info[0])
-                            part['end_week'] = int(arr_info[1])
+                    start_week = int(arr_info[0])
+                    end_week = int(arr_info[1])
 
                     if len(arr_info) >= 7:
-                        classroom = campus + \
-                            arr_info[5] + '-' + '-'.join(arr_info[6:])
-
+                        classroom = arr_info[5] + '-' + '-'.join(arr_info[6:])
                     else:
-                        classroom = campus + arr_info[5]
+                        classroom = arr_info[5]
                     classroom = classroom.replace('教学一楼', '教一楼')
                     print("获得教室 " + classroom)
-                    arr = {
+
+                    sessions = []
+                    for i in range(int(arr_info[3]), int(arr_info[4]) + 1):
+                        sessions.append(i)
+
+                    new_obj = {}
+                    new_obj.update({
                         'week_day': han_numbers.index(arr_info[2]),
-                        'start_from': int(arr_info[3]),
-                        'end_at': int(arr_info[4]),
-                        'classroom': classroom
-                    }
+                        'sessions': sessions,
+                        "campus": sanit(campus),
+                        'classroom': sanit(classroom).split('/')[-1].replace(')', '').replace('(', '')
+                    })
 
-                    if odd_even_flag != 2:
-                        part['odd_week'].append(arr)
+                    weeks = []
+                    if odd_even_flag == 0:
+                        for i in range(start_week, end_week + 1):
+                            weeks.append(i)
+                    elif odd_even_flag == 1:
+                        for i in range(start_week, end_week + 1):
+                            if i % 2 == 1:
+                                weeks.append(i)
+                    elif odd_even_flag == 2:
+                        for i in range(start_week, end_week + 1):
+                            if i % 2 == 0:
+                                weeks.append(i)
 
-                    if odd_even_flag != 1:
-                        part['even_week'].append(arr)
-
-                if part['odd_week'] == [] and part['even_week'] == []:
-                    print("Failed to dump " + arrangement)
-                    continue
+                    print("convert ", arr, ' => ', weeks, '的', sessions, '节')
+                    new_obj.update({
+                        "weeks": weeks
+                    })
+                general_data.update({
+                    "arrangements": new_obj
+                })
+                result_array.append(general_data)
                 # print(json.dumps(part, ensure_ascii=False))
-                result_array.append(part)
-                # print("course + 1")
+                pprint.pprint(general_data)
+                print("course + 1")
             print("Finish data grab for %s %s. Now %d counts" %
                   (campuses_id[camp], school, len(result_array)))
     return result_array
