@@ -16,7 +16,7 @@ def sanit(s):
     return s.replace('\xa0', '')
 
 
-QUICK_MODE = True
+QUICK_MODE = False
 
 if QUICK_MODE:
     campus_list = [1, 2, 3, 5]
@@ -70,137 +70,142 @@ def query_postgrad_data(start_year, term):
 
     result_array = []
 
-    for camp in [1, 2, 3, 5]:
+    for camp in campus_list:
         for school in school_id:
-            postParams = {'XQDM': str(start_year) + month_tbl[term],
-                          'xiaoqu': str(camp),
-                          'skyy': '',
-                          'YXDM': school,
-                          'KCDM': ''
-                          }
+            try:
+                postParams = {'XQDM': str(start_year) + month_tbl[term],
+                              'xiaoqu': str(camp),
+                              'skyy': '',
+                              'YXDM': school,
+                              'KCDM': ''
+                              }
 
-            # print("Params: ")
-            print(postParams)
+                # print("Params: ")
+                print(postParams)
 
-            sleep(2)
-            # Sleep 2 seconds before call .post
+                sleep(2)
+                # Sleep 2 seconds before call .post
 
-            requestUrl = session.post(queryUrl, data=postParams)
+                requestUrl = session.post(queryUrl, data=postParams)
 
-            sleep(2)
-            # Sleep 2 seconds before call .get
-            #
+                sleep(2)
+                # Sleep 2 seconds before call .get
+                #
 
-            query_result = etree.HTML(requestUrl.text)
+                query_result = etree.HTML(requestUrl.text)
 
-            # print("gotta " + requestUrl.text)
-            print("Campus + school has " +
-                  str(len(query_result.xpath('//*[@id="table_5"]/tbody/tr'))))
+                # print("gotta " + requestUrl.text)
+                print("Campus + school has " +
+                      str(len(query_result.xpath('//*[@id="table_5"]/tbody/tr'))))
 
-            for item in query_result.xpath('//*[@id="table_5"]/tbody/tr'):
-                nod = item.xpath('td[1]/div/a')
-                if len(nod) == 0:
-                    print("Throw up one piece.")
-                    continue
-
-                identifier = parse_leaf(item, 'td[1]/div/a')
-                code = identifier
-                holder_school = parse_leaf(item, 'td[7]/div')
-                name = parse_leaf(
-                    item, 'td[2]/div/a').split(identifier)[0]
-                year = start_year
-                term = term
-                target_grade = 0
-                teacher = parse_leaf(item, 'td[6]/div/a')
-                language = parse_leaf(item, 'td[5]/div')
-                credit = float(parse_leaf(item, 'td[4]/div'))
-
-                notes = "授课语言：" + language + \
-                    "。" + parse_leaf(item, 'td[12]/div')
-                student_number = int(parse_leaf(item, 'td[10]/div'))
-
-                campus = parse_leaf(item, 'td[8]/div')
-                arrangement = parse_leaf(item, 'td[9]/div')
-
-                general_data = {
-                    "identifier": identifier,
-                    "code": code,
-                    "holder_school": sanit(holder_school)[5:],
-                    "name": name,
-                    "year": year,
-                    "term": term,
-                    "target_grade": target_grade,
-                    "teacher": [teacher],
-                    "credit": credit,
-                    "student_number": student_number
-                }
-
-                arrs = arrangement.split(' ')
-                for arr in arrs:
-                    odd_even_flag = 0
-                    if '(单周)' in arr:
-                        arr = arr.replace('(单周)', '')
-                        print("Marked 单周. arr = " + arr)
-                        odd_even_flag = 1
-                    elif '(双周)' in arr:
-                        arr = arr.replace('(双周)', '')
-                        print("Marked 双周. arr = " + arr)
-                        odd_even_flag = 2
-
-                    arr_info = [x for x in re.split(
-                        "-|周,星期|第|-|节", arr) if x]
-                    if len(arr_info) < 6:
-                        # print("Throw up " + arr)
-                        # Skip this bad loop
+                for item in query_result.xpath('//*[@id="table_5"]/tbody/tr'):
+                    nod = item.xpath('td[1]/div/a')
+                    if len(nod) == 0:
+                        print("Throw up one piece.")
                         continue
 
-                    start_week = int(arr_info[0])
-                    end_week = int(arr_info[1])
+                    identifier = parse_leaf(item, 'td[1]/div/a')
+                    code = identifier
+                    holder_school = parse_leaf(item, 'td[7]/div')
+                    name = parse_leaf(
+                        item, 'td[2]/div/a').split(identifier)[0]
+                    year = start_year
+                    term = term
+                    target_grade = 0
+                    teacher = parse_leaf(item, 'td[6]/div/a')
+                    language = parse_leaf(item, 'td[5]/div')
+                    credit = float(parse_leaf(item, 'td[4]/div'))
 
-                    if len(arr_info) >= 7:
-                        classroom = arr_info[5] + '-' + '-'.join(arr_info[6:])
-                    else:
-                        classroom = arr_info[5]
-                    classroom = classroom.replace('教学一楼', '教一楼')
+                    notes = "授课语言：" + language + \
+                        "。" + parse_leaf(item, 'td[12]/div')
+                    student_number = int(parse_leaf(item, 'td[10]/div'))
 
-                    sessions = []
-                    for i in range(int(arr_info[3]), int(arr_info[4]) + 1):
-                        sessions.append(i)
+                    campus = parse_leaf(item, 'td[8]/div')
+                    arrangement = parse_leaf(item, 'td[9]/div')
 
-                    new_obj = {}
-                    new_obj.update({
-                        'week_day': han_numbers.index(arr_info[2]),
-                        'sessions': sessions,
-                        "campus": sanit(campus),
-                        'classroom': sanit(classroom).split('/')[-1].replace(')', '').replace('(', '')
-                    })
+                    general_data = {
+                        "identifier": identifier,
+                        "code": code,
+                        "holder_school": sanit(holder_school)[5:],
+                        "name": name,
+                        "year": year,
+                        "term": term,
+                        "target_grade": target_grade,
+                        "teacher": [teacher],
+                        "credit": credit,
+                        "student_number": student_number
+                    }
 
-                    print("获得教室 ", new_obj['classroom'])
+                    arrs = arrangement.split(' ')
+                    for arr in arrs:
+                        odd_even_flag = 0
+                        if '(单周)' in arr:
+                            arr = arr.replace('(单周)', '')
+                            print("Marked 单周. arr = " + arr)
+                            odd_even_flag = 1
+                        elif '(双周)' in arr:
+                            arr = arr.replace('(双周)', '')
+                            print("Marked 双周. arr = " + arr)
+                            odd_even_flag = 2
 
-                    weeks = []
-                    if odd_even_flag == 0:
-                        for i in range(start_week, end_week + 1):
-                            weeks.append(i)
-                    elif odd_even_flag == 1:
-                        for i in range(start_week, end_week + 1):
-                            if i % 2 == 1:
+                        arr_info = [x for x in re.split(
+                            "-|周,星期|第|-|节", arr) if x]
+                        if len(arr_info) < 6:
+                            # print("Throw up " + arr)
+                            # Skip this bad loop
+                            continue
+
+                        start_week = int(arr_info[0])
+                        end_week = int(arr_info[1])
+
+                        if len(arr_info) >= 7:
+                            classroom = arr_info[5] + \
+                                '-' + '-'.join(arr_info[6:])
+                        else:
+                            classroom = arr_info[5]
+                        classroom = classroom.replace('教学一楼', '教一楼')
+
+                        sessions = []
+                        for i in range(int(arr_info[3]), int(arr_info[4]) + 1):
+                            sessions.append(i)
+
+                        new_obj = {}
+                        new_obj.update({
+                            'week_day': han_numbers.index(arr_info[2]),
+                            'sessions': sessions,
+                            "campus": sanit(campus),
+                            'classroom': sanit(classroom).split('/')[-1].replace(')', '').replace('(', '')
+                        })
+
+                        print("获得教室 ", new_obj['classroom'])
+
+                        weeks = []
+                        if odd_even_flag == 0:
+                            for i in range(start_week, end_week + 1):
                                 weeks.append(i)
-                    elif odd_even_flag == 2:
-                        for i in range(start_week, end_week + 1):
-                            if i % 2 == 0:
-                                weeks.append(i)
+                        elif odd_even_flag == 1:
+                            for i in range(start_week, end_week + 1):
+                                if i % 2 == 1:
+                                    weeks.append(i)
+                        elif odd_even_flag == 2:
+                            for i in range(start_week, end_week + 1):
+                                if i % 2 == 0:
+                                    weeks.append(i)
 
-                    print("convert ", arr, ' => ', weeks, '的', sessions, '节')
-                    new_obj.update({
-                        "weeks": weeks
+                        print("convert ", arr, ' => ',
+                              weeks, '的', sessions, '节')
+                        new_obj.update({
+                            "weeks": weeks
+                        })
+                    general_data.update({
+                        "arrangements": new_obj
                     })
-                general_data.update({
-                    "arrangements": new_obj
-                })
-                result_array.append(general_data)
-                # print(json.dumps(part, ensure_ascii=False))
-                pprint.pprint(general_data)
-                print("course + 1")
+                    result_array.append(general_data)
+                    # print(json.dumps(part, ensure_ascii=False))
+                    pprint.pprint(general_data)
+                    print("course + 1")
+            except:
+                pass
             print("Finish data grab for %s %s. Now %d counts" %
                   (campuses_id[camp], school, len(result_array)))
     return result_array
