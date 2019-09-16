@@ -27,7 +27,7 @@ data = {
 
 current_path = os.path.dirname(os.path.abspath(__file__))
 json_path = os.path.abspath(os.path.join(
-    current_path, "../release/%d_%d_%d.json" % (start_year, start_year + 1, term)))
+    current_path, "../release/%d_%d/%d.json" % (start_year, start_year + 1, term)))
 
 counter = 0
 quick_go = False
