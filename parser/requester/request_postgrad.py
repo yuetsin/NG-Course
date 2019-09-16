@@ -74,12 +74,12 @@ def query_postgrad_data(start_year, term):
             # print("Params: ")
             print(postParams)
 
-            sleep(1.5)
+            sleep(2)
             # Sleep 2 seconds before call .post
 
             requestUrl = session.post(queryUrl, data=postParams)
 
-            sleep(1.5)
+            sleep(2)
             # Sleep 2 seconds before call .get
             #
 
@@ -122,7 +122,7 @@ def query_postgrad_data(start_year, term):
                     "year": year,
                     "term": term,
                     "target_grade": target_grade,
-                    "teacher": teacher,
+                    "teacher": [teacher],
                     "credit": credit,
                     "student_number": student_number
                 }
