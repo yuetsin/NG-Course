@@ -2,9 +2,9 @@
 
 上海交通大学本科生 + 研究生历年课程基本数据集。
 
-![GitHub](https://img.shields.io/github/license/yuetsin/finda-studyroom.svg)
-![GitHub release](https://img.shields.io/github/release/yuetsin/finda-studyroom.svg)
-![GitHub repo size](https://img.shields.io/github/repo-size/yuetsin/finda-studyroom.svg)
+![GitHub](https://img.shields.io/github/license/yuetsin/NG-Course.svg)
+![GitHub release](https://img.shields.io/github/release/yuetsin/NG-Course.svg)
+![GitHub repo size](https://img.shields.io/github/repo-size/yuetsin/NG-Course.svg)
 
 ---
 
@@ -12,27 +12,11 @@
 
 | Data Branch  | Status |
 | ------------- | ------------- |
-| Master (Default)  | [![Build Status](https://travis-ci.org/yuetsin/NG-Course.svg?branch=master)](https://travis-ci.org/yuetsin/finda-studyroom)  |
-| Beta (Pre-Release)  | [![Build Status](https://travis-ci.org/yuetsin/NG-Course.svg?branch=be-ta)](https://travis-ci.org/yuetsin/finda-studyroom)  |
-| Develop | [![Build Status](https://travis-ci.org/yuetsin/NG-Course.svg?branch=dev)](https://travis-ci.org/yuetsin/finda-studyroom)  |
+| Master (Default)  | [![Build Status](https://travis-ci.org/yuetsin/NG-Course.svg?branch=master)](https://travis-ci.org/yuetsin/NG-Course)  |
+| Beta (Pre-Release)  | [![Build Status](https://travis-ci.org/yuetsin/NG-Course.svg?branch=be-ta)](https://travis-ci.org/yuetsin/NG-Course)  |
+| Develop | [![Build Status](https://travis-ci.org/yuetsin/NG-Course.svg?branch=dev)](https://travis-ci.org/yuetsin/NG-Course)  |
 
 ## JSON 地址
-
-### 2018 至 2019 学年
-* 秋季学期 · [`https://github.com/yuetsin/finda-studyroom/raw/master/json_output/2018_2019_1.json`](https://github.com/yuetsin/finda-studyroom/raw/master/json_output/2018_2019_1.json)
-
-* 春季学期 · [`https://github.com/yuetsin/finda-studyroom/raw/master/json_output/2018_2019_2.json`](https://github.com/yuetsin/finda-studyroom/raw/master/json_output/2018_2019_2.json)
-
-### 2017 至 2018 学年
-* 秋季学期 · [`https://github.com/yuetsin/finda-studyroom/raw/master/json_output/2017_2018_1.json`](https://github.com/yuetsin/finda-studyroom/raw/master/json_output/2017_2018_1.json)
-
-* 春季学期 · [`https://github.com/yuetsin/finda-studyroom/raw/master/json_output/2017_2018_2.json`](https://github.com/yuetsin/finda-studyroom/raw/master/json_output/2017_2018_2.json)
-
-* 夏季小学期 · [`https://github.com/yuetsin/finda-studyroom/raw/master/json_output/2017_2018_3.json`](https://github.com/yuetsin/finda-studyroom/raw/master/json_output/2017_2018_3.json)
-
-### 更早的
-
-* [2017 年秋季门牌号重编前的数据](https://github.com/yuetsin/finda-studyroom/tree/master/json_output)
 
 ## 数据包括
 
@@ -56,13 +40,11 @@
 
 ## 数据结构
 
-[查看数据存储结构（JSON 样例）](https://github.com/yuetsin/finda-studyroom/blob/master/struct/structure.jsonnet)
-
-[查看数据存储结构（Markdown 文档）](https://github.com/yuetsin/finda-studyroom/blob/master/format/format.md)
+[查看数据存储结构（JSON 样例）](https://github.com/yuetsin/NG-Course/blob/master/struct/structure.jsonnet)
 
 ## 数据来源
 
-* 本科课程来自 [`electsysq` 查询接口](http://electsysq.sjtu.edu.cn/ReportServer/Pages/ReportViewer.aspx?%2fExamArrange%2fLessonArrangeForOthers&rs:Command=Render)
+* 本科课程来自 [`electsysq` 查询接口](http://electsysq.sjtu.edu.cn/ReportServer/Pages/ReportViewer.aspx?%2fExamArrange%2fLessonArrangeForOthers&rs:Command=Render) 和 [教学信息服务网](http://i.sjtu.edu.cn/)
 
 > 版权所有 © 1999 - 2019 上海交通大学网络信息中心 上海交通大学教务处 沪交ICP 备 05005
 
