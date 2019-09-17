@@ -3,9 +3,10 @@
 上海交通大学本科生 + 研究生历年课程基本数据集。
 
 [![Build Status](https://travis-ci.org/yuetsin/NG-Course.svg?branch=master)](https://travis-ci.org/yuetsin/NG-Course)
-![GitHub](https://img.shields.io/github/license/yuetsin/NG-Course.svg)
-![GitHub release](https://img.shields.io/github/release/yuetsin/NG-Course.svg)
-![GitHub repo size](https://img.shields.io/github/repo-size/yuetsin/NG-Course.svg)
+![GitHub](https://img.shields.io/github/license/yuetsin/NG-Course.svg?style=flat-square)
+![GitHub release](https://img.shields.io/github/release/yuetsin/NG-Course.svg?style=flat-square)
+![GitHub repo size](https://img.shields.io/github/repo-size/yuetsin/NG-Course.svg?style=flat-square)
+[![About Mine](https://img.shields.io/badge/see-mine-inactive.svg?style=flat-square)](https://github.com/yuetsin/curricula)
 
 [数据样例（JSON）](https://github.com/yuetsin/NG-Course/blob/master/struct/structure.jsonnet)
 
