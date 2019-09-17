@@ -6,8 +6,10 @@ import re
 import os
 import json
 import urllib
-import requests
+import random
 import pprint
+import requests
+
 from lxml import etree
 from time import sleep
 
@@ -17,6 +19,14 @@ def sanit(s):
 
 
 QUICK_MODE = False
+
+USES_PROXY = True
+
+proxy_list = []
+if USES_PROXY:
+    with open("../proxy/proxylist.1", "r") as f:
+        proxy_list = f.readlines()
+
 
 if QUICK_MODE:
     campus_list = [1, 2, 3, 5]
@@ -83,18 +93,53 @@ def query_postgrad_data(start_year, term):
                 # print("Params: ")
                 print(postParams)
 
-                sleep(2)
-                # Sleep 2 seconds before call .post
+                if not USES_PROXY:
+                    sleep(2)
+                    # Sleep 2 seconds before call .post
 
-                requestUrl = session.post(queryUrl, data=postParams)
+                    requestUrl = session.post(queryUrl, data=postParams)
 
-                sleep(2)
-                # Sleep 2 seconds before call .get
-                #
+                    sleep(2)
+                    # Sleep 2 seconds before call .get
+                    #
 
-                query_result = etree.HTML(requestUrl.text)
+                    query_result = etree.HTML(requestUrl.text)
+                else:
+                    try:
+                        proxy = proxy_list[random.randrange(len(proxy_list))]
+                        print("proxy:{}".format(proxy))
+                        s = requests.Session()
+                        proxies = {
+                            "http": "http://{}".format(proxy.strip()), "https": "https://{}".format(proxy.strip())
+                        }
 
-                # print("gotta " + requestUrl.text)
+                        headers = {
+                            'Connection': 'keep-alive',
+                            'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.81 Safari/537.36',
+                            'Host': 'www.yjs.sjtu.edu.cn:81',
+                            'Origin': 'http://www.yjs.sjtu.edu.cn:81',
+                            'Referer': 'http://www.yjs.sjtu.edu.cn:81/epstar/web/outer/KKBJ_CX/kkbj.jsp',
+                            'Upgrade-Insecure-Requests': '1'
+                        }
+                        ret = s.post(url=queryUrl, data=postParams,
+                                     headers=headers, proxies=proxies, timeout=4)
+                        rc = ret.content.decode("utf-8")
+                        query_result = etree.HTML(requestUrl.text)
+                    except:
+                        print("proxy %s failed. fallback" % proxy)
+                        proxy_list.remove(proxy)
+                        sleep(2)
+                        # Sleep 2 seconds before call .post
+
+                        requestUrl = session.post(queryUrl, data=postParams)
+
+                        sleep(2)
+                        # Sleep 2 seconds before call .get
+                        #
+
+                        query_result = etree.HTML(requestUrl.text)
+
+                    # print("gotta " + requestUrl.text)
                 print("Campus + school has " +
                       str(len(query_result.xpath('//*[@id="table_5"]/tbody/tr'))))
 
@@ -198,7 +243,7 @@ def query_postgrad_data(start_year, term):
                             "weeks": weeks
                         })
                     general_data.update({
-                        "arrangements": new_obj
+                        "arrangements": [new_obj]
                     })
                     result_array.append(general_data)
                     # print(json.dumps(part, ensure_ascii=False))
