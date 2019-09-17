@@ -8,7 +8,7 @@
 
 ---
 
-## 状态
+## Status
 
 | Data Branch  | Status |
 | ------------- | ------------- |
@@ -16,7 +16,44 @@
 | Beta (Pre-Release)  | [![Build Status](https://travis-ci.org/yuetsin/NG-Course.svg?branch=be-ta)](https://travis-ci.org/yuetsin/NG-Course)  |
 | Develop | [![Build Status](https://travis-ci.org/yuetsin/NG-Course.svg?branch=dev)](https://travis-ci.org/yuetsin/NG-Course)  |
 
+## 自己 Dump 数据
+
+### 依赖
+
+``` shell
+pip[3] install -r requirements.txt
+```
+### 设定 Proxy（可选）
+
+1. 如无需启用代理来 dump 研究生课程数据，可将 `/NG-Course/parser/requester/request_postgrad.py` 中第 23 行修改为：
+``` python3
+Line 23:    USES_PROXY = False
+```
+2. 如需启用代理，则确保上述 `.py` 文件配置为
+``` python3
+Line 23:    USES_PROXY = True
+```
+并在 `/NG-Course/proxy/proxylist.1` 中填入 HTTP 代理 ip:port（一行一个）并保存。
+
+> Info: 建议使用中国大陆 IP 代理来提高速度。
+
+3. 运行 `/NG-Course/parser/parser.py` 脚本来开始。
+> Warning: ⚠️ 需要输入一个有效关联到本科生的 jAccount 账户来同步。登录信息不会被代理。
+
 ## JSON 地址
+
+### 2019 至 2020 学年
+
+* 秋季学期 `https://raw.githubusercontent.com/yuetsin/NG-Course/master/release/2019_2020_1.json`
+
+
+### 2018 至 2019 学年
+
+* 秋季学期 `https://raw.githubusercontent.com/yuetsin/NG-Course/master/release/2018_2019_1.json`
+
+* 春季学期 `https://raw.githubusercontent.com/yuetsin/NG-Course/master/release/2018_2019_2.json`
+
+* 夏季学期 `https://raw.githubusercontent.com/yuetsin/NG-Course/master/release/2018_2019_3.json`
 
 ## 数据包括
 
