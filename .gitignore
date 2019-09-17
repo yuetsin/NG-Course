@@ -104,3 +104,4 @@ venv.bak/
 .mypy_cache/
 .DS_Store
 parser/requester/__captcha.png
+parser/__captcha.png

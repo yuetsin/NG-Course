@@ -173,7 +173,7 @@ def query_postgrad_data(start_year, term):
                         "code": code,
                         "holder_school": sanit(holder_school)[5:],
                         "name": name,
-                        "year": year,
+                        "year": year if term == 1 else (year - 1),
                         "term": term,
                         "target_grade": target_grade,
                         "teacher": [teacher],
