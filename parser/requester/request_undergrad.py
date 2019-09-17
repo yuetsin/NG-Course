@@ -14,6 +14,7 @@ import electsysApi.modules as modules
 import getpass
 import re
 
+
 MAX_LIMIT = 10000
 
 log = login.Login()
@@ -60,11 +61,11 @@ def query_undergrad_data(start_year, term):
                 classrooms = ['教室未定']
             print("len(classroom) and len(arrangements): ",
                   len(classrooms), len(arrangement_strs))
+            # print("arrangement_strs: ", arrangement_strs)
             for arrangement in arrangement_strs:
                 actual_weeks = []
                 phases = [x for x in re.split(
                     "第|{|}", arrangement) if x]
-
                 weekday = phases[0]
                 # like 星期一
                 print("weekday: (like 星期一) ", weekday)
@@ -150,10 +151,9 @@ def query_undergrad_data(start_year, term):
             print("course: ", course.kcmc, "\nweek: ",
                   course.qsjsz, " => ", actual_weeks)
             # input()
-        except e:
+        except:
             print(
-                "giving up one, due to critical mismatch. press enter to continue, or control + c to terminate")
-            input()
+                "\n\n noticing one giving up one, due to critical mismatch.\n\n")
             continue
     return result_all
 
