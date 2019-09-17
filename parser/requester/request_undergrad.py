@@ -15,6 +15,10 @@ import getpass
 import re
 
 
+def sanit(s):
+    return s.replace('\xa0', '').replace('&nbsp', '').strip()
+
+
 MAX_LIMIT = 10000
 
 log = login.Login()
@@ -144,7 +148,7 @@ def query_undergrad_data(start_year, term):
                 "target_grade": int(course.nj) if course.nj.isdigit() else 0,
                 "teacher": course.jsxx.split(','),
                 "credit": course.xf,
-                "notes": notes,
+                "notes": sanit(notes),
                 "student_number": course.xkrs,
                 "arrangements": arrangements
             })

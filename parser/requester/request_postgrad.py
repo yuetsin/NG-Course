@@ -15,7 +15,7 @@ from time import sleep
 
 
 def sanit(s):
-    return s.replace('\xa0', '').replace('&nbsp', '')
+    return s.replace('\xa0', '').replace('&nbsp', '').strip()
 
 
 QUICK_MODE = False
