@@ -15,16 +15,16 @@
 
 ### 2019 至 2020 学年
 
-* 秋季学期 `https://raw.githubusercontent.com/yuetsin/NG-Course/master/release/2019_2020_1.json`
+* 秋季学期 [`https://raw.githubusercontent.com/yuetsin/NG-Course/master/release/2019_2020_1.json`](https://raw.githubusercontent.com/yuetsin/NG-Course/master/release/2019_2020_1.json)
 
 
 ### 2018 至 2019 学年
 
-* 秋季学期 `https://raw.githubusercontent.com/yuetsin/NG-Course/master/release/2018_2019_1.json`
+* 秋季学期 [`https://raw.githubusercontent.com/yuetsin/NG-Course/master/release/2018_2019_1.json`](https://raw.githubusercontent.com/yuetsin/NG-Course/master/release/2018_2019_1.json)
 
-* 春季学期 `https://raw.githubusercontent.com/yuetsin/NG-Course/master/release/2018_2019_2.json`
+* 春季学期 [`https://raw.githubusercontent.com/yuetsin/NG-Course/master/release/2018_2019_2.json`](https://raw.githubusercontent.com/yuetsin/NG-Course/master/release/2018_2019_2.json)
 
-* 夏季学期 `https://raw.githubusercontent.com/yuetsin/NG-Course/master/release/2018_2019_3.json`
+* 夏季学期 [`https://raw.githubusercontent.com/yuetsin/NG-Course/master/release/2018_2019_3.json`](https://raw.githubusercontent.com/yuetsin/NG-Course/master/release/2018_2019_3.json)
 
 ## Dump 数据
 
