@@ -15,7 +15,7 @@ from time import sleep
 
 
 def sanit(s):
-    return s.replace('\xa0', '')
+    return s.replace('\xa0', '').replace('&nbsp', '')
 
 
 QUICK_MODE = False
@@ -178,7 +178,8 @@ def query_postgrad_data(start_year, term):
                         "target_grade": target_grade,
                         "teacher": [teacher],
                         "credit": credit,
-                        "student_number": student_number
+                        "student_number": student_number,
+                        "notes": sanit(notes)
                     }
 
                     arrs = arrangement.split(' ')
