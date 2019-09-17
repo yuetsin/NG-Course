@@ -7,9 +7,7 @@
 ![GitHub release](https://img.shields.io/github/release/yuetsin/NG-Course.svg)
 ![GitHub repo size](https://img.shields.io/github/repo-size/yuetsin/NG-Course.svg)
 
-## 数据结构
-
-[查看数据存储结构（JSON 样例）](https://github.com/yuetsin/NG-Course/blob/master/struct/structure.jsonnet)
+[数据样例（JSON）](https://github.com/yuetsin/NG-Course/blob/master/struct/structure.jsonnet)
 
 ## JSON 地址
 
