@@ -20,7 +20,7 @@ def sanit(s):
 
 QUICK_MODE = False
 
-USES_PROXY = True
+USES_PROXY = False
 
 proxy_list = []
 if USES_PROXY:
@@ -46,7 +46,7 @@ queryUrl = "http://www.yjs.sjtu.edu.cn:81/epstar/web/outer/KKBJ_CX/kkbj.jsp"
 
 campuses = ["闵行校区", "徐汇校区", "卢湾校区", "法华校区", "七宝校区", "外地", "上海市精神卫生中心", "临港校区"]
 
-campuses_id = ["哈！", "闵行", "徐汇", "卢湾",
+campuses_id = ["Any 校区", "闵行", "徐汇", "卢湾",
                "法华", "七宝", "外地", "上海市精神卫生中心", "临港"]
 
 school_id = ['00000', '01000', '01900', '02000', '03000', '03100', '03200', '03300', '03400', '03500', '03600', '03700', '03900', '05000', '07100', '07200', '08000', '08200', '09000', '09600', '10000', '11000', '12000', '13000', '14000', '15000', '16000', '17000', '18000', '19000', '20000', '21000', '22000', '22100', '23000', '25100', '26000', '27000', '28000', '29000', '29100', '31000', '33000', '34000', '35000',
@@ -80,17 +80,17 @@ def query_postgrad_data(start_year, term):
 
     result_array = []
 
-    for camp in campus_list:
+    for camp in [0]:
         for school in school_id:
             try:
                 postParams = {'XQDM': str(start_year) + month_tbl[term],
-                              'xiaoqu': str(camp),
+                              'xiaoqu': '',
                               'skyy': '',
                               'YXDM': school,
                               'KCDM': ''
                               }
 
-                # print("Params: ")
+                print("\n#############\nprepare for: ")
                 print(postParams)
 
                 if not USES_PROXY:
@@ -251,7 +251,7 @@ def query_postgrad_data(start_year, term):
                     pprint.pprint(general_data)
                     print("course + 1")
             except:
-                pass
+                input("giving up one")
             print("Finish data grab for %s %s. Now %d counts" %
                   (campuses_id[camp], school, len(result_array)))
     return result_array
