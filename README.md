@@ -2,10 +2,12 @@
 
 上海交通大学本科生 + 研究生历年课程基本数据集。
 
-[![Build Status](https://travis-ci.org/yuetsin/NG-Course.svg?branch=master)](https://travis-ci.org/yuetsin/NG-Course)
-![GitHub](https://img.shields.io/github/license/yuetsin/NG-Course.svg)
-![GitHub release](https://img.shields.io/github/release/yuetsin/NG-Course.svg)
-![GitHub repo size](https://img.shields.io/github/repo-size/yuetsin/NG-Course.svg)
+![Travis (.org)](https://img.shields.io/travis/yuetsin/NG-Course?label=travis%20ci)
+[![Actions Status](https://github.com/yuetsin/NG-Course/workflows/build/badge.svg)](https://github.com/yuetsin/NG-Course/actions)
+![GitHub](https://img.shields.io/github/license/yuetsin/NG-Course.svg?style=flat-square)
+![GitHub release](https://img.shields.io/github/release/yuetsin/NG-Course.svg?style=flat-square)
+![GitHub repo size](https://img.shields.io/github/repo-size/yuetsin/NG-Course.svg?style=flat-square)
+[![About Mine](https://img.shields.io/badge/see-mine-inactive.svg?style=flat-square)](https://github.com/yuetsin/curricula)
 
 [数据样例（JSON）](https://github.com/yuetsin/NG-Course/blob/master/struct/structure.jsonnet)
 
@@ -13,16 +15,16 @@
 
 ### 2019 至 2020 学年
 
-* 秋季学期 `https://raw.githubusercontent.com/yuetsin/NG-Course/master/release/2019_2020_1.json`
+* 秋季学期 [`https://raw.githubusercontent.com/yuetsin/NG-Course/master/release/2019_2020_1.json`](https://raw.githubusercontent.com/yuetsin/NG-Course/master/release/2019_2020_1.json)
 
 
 ### 2018 至 2019 学年
 
-* 秋季学期 `https://raw.githubusercontent.com/yuetsin/NG-Course/master/release/2018_2019_1.json`
+* 秋季学期 [`https://raw.githubusercontent.com/yuetsin/NG-Course/master/release/2018_2019_1.json`](https://raw.githubusercontent.com/yuetsin/NG-Course/master/release/2018_2019_1.json)
 
-* 春季学期 `https://raw.githubusercontent.com/yuetsin/NG-Course/master/release/2018_2019_2.json`
+* 春季学期 [`https://raw.githubusercontent.com/yuetsin/NG-Course/master/release/2018_2019_2.json`](https://raw.githubusercontent.com/yuetsin/NG-Course/master/release/2018_2019_2.json)
 
-* 夏季学期 `https://raw.githubusercontent.com/yuetsin/NG-Course/master/release/2018_2019_3.json`
+* 夏季学期 [`https://raw.githubusercontent.com/yuetsin/NG-Course/master/release/2018_2019_3.json`](https://raw.githubusercontent.com/yuetsin/NG-Course/master/release/2018_2019_3.json)
 
 ## Dump 数据
 
@@ -48,7 +50,7 @@ Line 23:    USES_PROXY = True
 > 建议使用中国大陆 IP 代理来提高速度。
 
 3. 运行 `/NG-Course/parser/parser.py` 脚本来开始。
-> ⚠️ 需要输入一个有效关联到本科生的 jAccount 账户来同步。登录信息不会被代理。
+> ⚠️ 需要输入一个有效关联到本科生的 jAccount 账户来同步。登录请求不会被代理。
 
 ## 数据包括
 
