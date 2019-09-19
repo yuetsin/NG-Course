@@ -50,7 +50,7 @@ Line 23:    USES_PROXY = True
 > 建议使用中国大陆 IP 代理来提高速度。
 
 3. 运行 `/NG-Course/parser/parser.py` 脚本来开始。
-> ⚠️ 需要输入一个有效关联到本科生的 jAccount 账户来同步。登录信息不会被代理。
+> ⚠️ 需要输入一个有效关联到本科生的 jAccount 账户来同步。登录请求不会被代理。
 
 ## 数据包括
 
