@@ -22,6 +22,8 @@ QUICK_MODE = False
 
 USES_PROXY = False
 
+DEBUG = False
+
 proxy_list = []
 if USES_PROXY:
     with open("../proxy/proxylist.1", "r") as f:
@@ -82,18 +84,52 @@ def query_postgrad_data(start_year, term):
 
     for camp in [0]:
         for school in school_id:
-            try:
-                postParams = {'XQDM': str(start_year) + month_tbl[term],
-                              'xiaoqu': '',
-                              'skyy': '',
-                              'YXDM': school,
-                              'KCDM': ''
-                              }
 
-                print("\n#############\nprepare for: ")
-                print(postParams)
+            postParams = {'XQDM': str(start_year) + month_tbl[term],
+                          'xiaoqu': '',
+                          'skyy': '',
+                          'YXDM': school,
+                          'KCDM': ''
+                          }
 
-                if not USES_PROXY:
+            print("\n#############\nprepare for: ")
+            print(postParams)
+
+            if not USES_PROXY:
+                sleep(2)
+                # Sleep 2 seconds before call .post
+
+                requestUrl = session.post(queryUrl, data=postParams)
+
+                sleep(2)
+                # Sleep 2 seconds before call .get
+                #
+
+                query_result = etree.HTML(requestUrl.text)
+            else:
+                try:
+                    proxy = proxy_list[random.randrange(len(proxy_list))]
+                    print("proxy:{}".format(proxy))
+                    s = requests.Session()
+                    proxies = {
+                        "http": "http://{}".format(proxy.strip()), "https": "https://{}".format(proxy.strip())
+                    }
+
+                    headers = {
+                        'Connection': 'keep-alive',
+                        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.81 Safari/537.36',
+                        'Host': 'www.yjs.sjtu.edu.cn:81',
+                        'Origin': 'http://www.yjs.sjtu.edu.cn:81',
+                        'Referer': 'http://www.yjs.sjtu.edu.cn:81/epstar/web/outer/KKBJ_CX/kkbj.jsp',
+                        'Upgrade-Insecure-Requests': '1'
+                    }
+                    ret = s.post(url=queryUrl, data=postParams,
+                                 headers=headers, proxies=proxies, timeout=4)
+                    rc = ret.content.decode("utf-8")
+                    query_result = etree.HTML(requestUrl.text)
+                except:
+                    print("proxy %s failed. fallback" % proxy)
+                    proxy_list.remove(proxy)
                     sleep(2)
                     # Sleep 2 seconds before call .post
 
@@ -104,60 +140,35 @@ def query_postgrad_data(start_year, term):
                     #
 
                     query_result = etree.HTML(requestUrl.text)
-                else:
-                    try:
-                        proxy = proxy_list[random.randrange(len(proxy_list))]
-                        print("proxy:{}".format(proxy))
-                        s = requests.Session()
-                        proxies = {
-                            "http": "http://{}".format(proxy.strip()), "https": "https://{}".format(proxy.strip())
-                        }
 
-                        headers = {
-                            'Connection': 'keep-alive',
-                            'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.81 Safari/537.36',
-                            'Host': 'www.yjs.sjtu.edu.cn:81',
-                            'Origin': 'http://www.yjs.sjtu.edu.cn:81',
-                            'Referer': 'http://www.yjs.sjtu.edu.cn:81/epstar/web/outer/KKBJ_CX/kkbj.jsp',
-                            'Upgrade-Insecure-Requests': '1'
-                        }
-                        ret = s.post(url=queryUrl, data=postParams,
-                                     headers=headers, proxies=proxies, timeout=4)
-                        rc = ret.content.decode("utf-8")
-                        query_result = etree.HTML(requestUrl.text)
-                    except:
-                        print("proxy %s failed. fallback" % proxy)
-                        proxy_list.remove(proxy)
-                        sleep(2)
-                        # Sleep 2 seconds before call .post
-
-                        requestUrl = session.post(queryUrl, data=postParams)
-
-                        sleep(2)
-                        # Sleep 2 seconds before call .get
-                        #
-
-                        query_result = etree.HTML(requestUrl.text)
-
-                    # print("gotta " + requestUrl.text)
+                # print("gotta " + requestUrl.text)
                 print("Campus + school has " +
                       str(len(query_result.xpath('//*[@id="table_5"]/tbody/tr'))))
 
+            try:
                 for item in query_result.xpath('//*[@id="table_5"]/tbody/tr'):
                     nod = item.xpath('td[1]/div/a')
                     if len(nod) == 0:
                         print("Throw up one piece.")
                         continue
 
-                    identifier = parse_leaf(item, 'td[1]/div/a')
-                    code = identifier
+                    code = parse_leaf(item, 'td[1]/div/a')
                     holder_school = parse_leaf(item, 'td[7]/div')
                     name = parse_leaf(
-                        item, 'td[2]/div/a').split(identifier)[0]
+                        item, 'td[2]/div/a').split(code)[0]
+
+                    classname = parse_leaf(
+                        item, 'td[2]/div/a').split(code)
+                    identifier = classname[1] if len(classname) > 1 else code
                     year = start_year
                     term = term
                     target_grade = 0
-                    teacher = parse_leaf(item, 'td[6]/div/a')
+
+                    teacher = [name.text for name in item.xpath('td[6]/div/a')]
+
+                    print("teacher field is: ", teacher)
+                    # if DEBUG:
+                    #     input()
                     language = parse_leaf(item, 'td[5]/div')
                     credit = float(parse_leaf(item, 'td[4]/div'))
 
@@ -176,7 +187,7 @@ def query_postgrad_data(start_year, term):
                         "year": year if term == 1 else (year - 1),
                         "term": term,
                         "target_grade": target_grade,
-                        "teacher": [teacher],
+                        "teacher": teacher,
                         "credit": credit,
                         "student_number": student_number,
                         "notes": sanit(notes)
@@ -249,9 +260,15 @@ def query_postgrad_data(start_year, term):
                     result_array.append(general_data)
                     # print(json.dumps(part, ensure_ascii=False))
                     pprint.pprint(general_data)
-                    print("course + 1")
+
+                    if DEBUG:
+                        input()
             except:
                 input("giving up one")
             print("Finish data grab for %s %s. Now %d counts" %
                   (campuses_id[camp], school, len(result_array)))
     return result_array
+
+
+if __name__ == '__main__':
+    query_postgrad_data(2019, 1)
