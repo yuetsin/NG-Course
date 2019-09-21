@@ -145,8 +145,8 @@ def query_postgrad_data(start_year, term):
                 print("Campus + school has " +
                       str(len(query_result.xpath('//*[@id="table_5"]/tbody/tr'))))
 
-            try:
-                for item in query_result.xpath('//*[@id="table_5"]/tbody/tr'):
+            for item in query_result.xpath('//*[@id="table_5"]/tbody/tr'):
+                try:
                     nod = item.xpath('td[1]/div/a')
                     if len(nod) == 0:
                         print("Throw up one piece.")
@@ -263,8 +263,8 @@ def query_postgrad_data(start_year, term):
 
                     if DEBUG:
                         input()
-            except:
-                input("giving up one")
+                except:
+                    input("giving up one")
             print("Finish data grab for %s %s. Now %d counts" %
                   (campuses_id[camp], school, len(result_array)))
     return result_array
