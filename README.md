@@ -1,7 +1,4 @@
-![NG-Course](https://github.com/yuetsin/NG-Course/blob/master/misc/title.png?raw=true)
----
-
-上海交通大学本科生 + 研究生历年课程基本数据集。
+<img src="https://github.com/yuetsin/NG-Course/blob/master/misc/title.png?raw=true" width="300" alt="NG-Course" />
 
 ![Travis (.org)](https://img.shields.io/travis/yuetsin/NG-Course?label=travis%20ci)
 [![Actions Status](https://github.com/yuetsin/NG-Course/workflows/build/badge.svg)](https://github.com/yuetsin/NG-Course/actions)
@@ -9,6 +6,8 @@
 ![GitHub release](https://img.shields.io/github/release/yuetsin/NG-Course.svg?style=flat-square)
 ![GitHub repo size](https://img.shields.io/github/repo-size/yuetsin/NG-Course.svg?style=flat-square)
 [![About Mine](https://img.shields.io/badge/see-mine-inactive.svg?style=flat-square)](https://github.com/yuetsin/curricula)
+
+上海交通大学本科生 + 研究生历年课程基本数据集。
 
 [数据样例（JSON）](https://github.com/yuetsin/NG-Course/blob/master/struct/structure.jsonnet)
 
@@ -89,4 +88,3 @@ Line 23:    USES_PROXY = True
 ## 已知问题
 
 - [ ] 不包含上海交通大学医学院课程数据。
-
