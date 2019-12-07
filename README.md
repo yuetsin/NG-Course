@@ -1,4 +1,5 @@
-# NG-Course
+![NG-Course](https://github.com/yuetsin/NG-Course/blob/master/misc/title.png?raw=true)
+---
 
 上海交通大学本科生 + 研究生历年课程基本数据集。
 
