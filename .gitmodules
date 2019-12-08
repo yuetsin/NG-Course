@@ -1,0 +1,3 @@
+[submodule "electsys-api"]
+	path = electsys-api
+	url = https://github.com/yuetsin/electsys-api
