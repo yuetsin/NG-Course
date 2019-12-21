@@ -25,6 +25,14 @@
 
 * 夏季学期 [`https://raw.githubusercontent.com/yuetsin/NG-Course/master/release/2018_2019_3.json`](https://raw.githubusercontent.com/yuetsin/NG-Course/master/release/2018_2019_3.json)
 
+### 测试数据
+
+* 10 则 [`https://raw.githubusercontent.com/yuetsin/NG-Course/master/example/10.json`](https://raw.githubusercontent.com/yuetsin/NG-Course/master/example/10.json)
+
+* 100 则 [`https://raw.githubusercontent.com/yuetsin/NG-Course/master/example/100.json`](https://raw.githubusercontent.com/yuetsin/NG-Course/master/example/100.json)
+
+* 1000 则 [`https://raw.githubusercontent.com/yuetsin/NG-Course/master/example/1000.json`](https://raw.githubusercontent.com/yuetsin/NG-Course/master/example/1000.json)
+
 ## Dump 数据
 
 ### 安装依赖
