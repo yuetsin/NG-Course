@@ -9,8 +9,7 @@
 
 上海交通大学本科生 + 研究生历年课程基本数据集。
 
-[数据样例（JSON）](https://github.com/yuetsin/NG-Course/blob/master/struct/structure.jsonnet)
-
+[数据样例（JSON）](https://github.com/yuetsin/NG-Course/blob/master/struct/structure.jsonnet) [Demo](https://yuetsin.github.io/index.html)
 ## JSON 地址
 
 ### 2019 至 2020 学年
