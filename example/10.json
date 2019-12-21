@@ -1,0 +1,736 @@
+{
+    "data": [
+        {
+            "arrangements": [
+                {
+                    "week_day": 7,
+                    "weeks": [
+                        3,
+                        5,
+                        7,
+                        8,
+                        9,
+                        10,
+                        11,
+                        12,
+                        13,
+                        14,
+                        15,
+                        16,
+                        18
+                    ],
+                    "sessions": [
+                        1,
+                        2,
+                        3,
+                        5,
+                        6,
+                        7,
+                        8,
+                        11
+                    ],
+                    "campus": "徐汇",
+                    "classroom": "徐汇中院423"
+                }
+            ],
+            "identifier": "(2017-2018-2)-SI832-1",
+            "code": "SI832",
+            "holder_school": "上海交通大学故事学院",
+            "name": "成就的蜡烛导论",
+            "year": 2017,
+            "term": 2,
+            "target_grade": 2015,
+            "teacher": [
+                "孙电灯胆",
+                "卫月亮",
+                "陈保温杯",
+                "褚数据线"
+            ],
+            "credit": 4.0,
+            "notes": "",
+            "student_number": 286
+        },
+        {
+            "arrangements": [
+                {
+                    "week_day": 6,
+                    "weeks": [
+                        1,
+                        2,
+                        3,
+                        4,
+                        8,
+                        9,
+                        10,
+                        11,
+                        15,
+                        16,
+                        17,
+                        18
+                    ],
+                    "sessions": [
+                        1,
+                        2,
+                        3,
+                        5,
+                        6,
+                        7,
+                        9,
+                        13
+                    ],
+                    "campus": "闵行",
+                    "classroom": "东中院501"
+                },
+                {
+                    "week_day": 3,
+                    "weeks": [
+                        1,
+                        3,
+                        5,
+                        6,
+                        7,
+                        8,
+                        10,
+                        12,
+                        14,
+                        17
+                    ],
+                    "sessions": [
+                        1,
+                        2,
+                        4,
+                        6,
+                        8,
+                        11,
+                        13
+                    ],
+                    "campus": "闵行",
+                    "classroom": "上院408"
+                },
+                {
+                    "week_day": 5,
+                    "weeks": [
+                        1,
+                        4,
+                        6,
+                        7,
+                        9,
+                        11,
+                        14,
+                        16,
+                        18
+                    ],
+                    "sessions": [
+                        1,
+                        3,
+                        5,
+                        6,
+                        7,
+                        8,
+                        9,
+                        10,
+                        12
+                    ],
+                    "campus": "徐汇",
+                    "classroom": "新上院337"
+                }
+            ],
+            "identifier": "(2017-2018-2)-RB154-1",
+            "code": "RB154",
+            "holder_school": "上海交通大学手链学院",
+            "name": "高级年轻的乌龟",
+            "year": 2017,
+            "term": 2,
+            "target_grade": 2013,
+            "teacher": [
+                "李过客",
+                "赵帽子"
+            ],
+            "credit": 4.5,
+            "notes": "",
+            "student_number": 266
+        },
+        {
+            "arrangements": [
+                {
+                    "week_day": 1,
+                    "weeks": [
+                        2,
+                        3,
+                        4,
+                        5,
+                        6,
+                        7,
+                        8,
+                        9,
+                        11,
+                        13,
+                        16,
+                        17,
+                        18
+                    ],
+                    "sessions": [
+                        2,
+                        3,
+                        6,
+                        7,
+                        9,
+                        11,
+                        13
+                    ],
+                    "campus": "徐汇",
+                    "classroom": "徐汇中院909"
+                },
+                {
+                    "week_day": 7,
+                    "weeks": [
+                        1,
+                        3,
+                        5,
+                        9,
+                        12,
+                        13,
+                        14,
+                        17
+                    ],
+                    "sessions": [
+                        1,
+                        2,
+                        3,
+                        4,
+                        5,
+                        6,
+                        8,
+                        9,
+                        11,
+                        13
+                    ],
+                    "campus": "徐汇",
+                    "classroom": "教一楼623"
+                }
+            ],
+            "identifier": "(2017-2018-2)-PH424-1",
+            "code": "PH424",
+            "holder_school": "上海交通大学香菇学院",
+            "name": "失眠的项链：原理与展望",
+            "year": 2017,
+            "term": 2,
+            "target_grade": 2015,
+            "teacher": [
+                "孙香水",
+                "杨毛巾"
+            ],
+            "credit": 0.5,
+            "notes": "",
+            "student_number": 93
+        },
+        {
+            "arrangements": [
+                {
+                    "week_day": 5,
+                    "weeks": [
+                        1,
+                        2,
+                        3,
+                        5,
+                        6,
+                        7,
+                        8,
+                        10,
+                        11,
+                        12,
+                        14,
+                        17,
+                        18
+                    ],
+                    "sessions": [
+                        1,
+                        2,
+                        6,
+                        7,
+                        8,
+                        9,
+                        10,
+                        12,
+                        13
+                    ],
+                    "campus": "徐汇",
+                    "classroom": "徐汇中院335"
+                },
+                {
+                    "week_day": 1,
+                    "weeks": [
+                        1,
+                        4,
+                        5,
+                        6,
+                        7,
+                        8,
+                        12,
+                        14,
+                        15,
+                        16,
+                        18
+                    ],
+                    "sessions": [
+                        1,
+                        2,
+                        3,
+                        4,
+                        6,
+                        7,
+                        9,
+                        10,
+                        11
+                    ],
+                    "campus": "闵行",
+                    "classroom": "中院527"
+                }
+            ],
+            "identifier": "(2017-2018-2)-DW475-1",
+            "code": "DW475",
+            "holder_school": "上海交通大学心情学院",
+            "name": "背后的河马导论",
+            "year": 2017,
+            "term": 2,
+            "target_grade": 2013,
+            "teacher": [
+                "陈招牌"
+            ],
+            "credit": 5.5,
+            "notes": "",
+            "student_number": 73
+        },
+        {
+            "arrangements": [
+                {
+                    "week_day": 5,
+                    "weeks": [
+                        2,
+                        4,
+                        6,
+                        8,
+                        9,
+                        10,
+                        12,
+                        13,
+                        15,
+                        16,
+                        17
+                    ],
+                    "sessions": [
+                        1,
+                        2,
+                        3,
+                        4,
+                        5,
+                        7,
+                        10
+                    ],
+                    "campus": "卢湾",
+                    "classroom": "东一楼915"
+                },
+                {
+                    "week_day": 4,
+                    "weeks": [
+                        3,
+                        4,
+                        7,
+                        11,
+                        13,
+                        15,
+                        17,
+                        18
+                    ],
+                    "sessions": [
+                        3,
+                        5,
+                        6,
+                        9,
+                        10,
+                        12
+                    ],
+                    "campus": "徐汇",
+                    "classroom": "徐汇中院714"
+                },
+                {
+                    "week_day": 7,
+                    "weeks": [
+                        1,
+                        2,
+                        4,
+                        6,
+                        8,
+                        11,
+                        13,
+                        14,
+                        18
+                    ],
+                    "sessions": [
+                        2,
+                        4,
+                        5,
+                        7,
+                        8,
+                        10,
+                        13
+                    ],
+                    "campus": "闵行",
+                    "classroom": "下院413"
+                }
+            ],
+            "identifier": "(2017-2018-2)-RX705-1",
+            "code": "RX705",
+            "holder_school": "上海交通大学大门学院",
+            "name": "机智的大叔：原理与展望",
+            "year": 2017,
+            "term": 2,
+            "target_grade": 2015,
+            "teacher": [
+                "褚母鸡",
+                "赵抽屉"
+            ],
+            "credit": 0.5,
+            "notes": "",
+            "student_number": 155
+        },
+        {
+            "arrangements": [
+                {
+                    "week_day": 3,
+                    "weeks": [
+                        2,
+                        3,
+                        5,
+                        12,
+                        13,
+                        15,
+                        16,
+                        18
+                    ],
+                    "sessions": [
+                        2,
+                        3,
+                        4,
+                        9,
+                        11,
+                        12,
+                        13
+                    ],
+                    "campus": "闵行",
+                    "classroom": "东上院707"
+                },
+                {
+                    "week_day": 4,
+                    "weeks": [
+                        1,
+                        7,
+                        8,
+                        10,
+                        11,
+                        12,
+                        13,
+                        16,
+                        17
+                    ],
+                    "sessions": [
+                        2,
+                        4,
+                        6,
+                        7,
+                        10,
+                        11
+                    ],
+                    "campus": "卢湾",
+                    "classroom": "东一楼219"
+                },
+                {
+                    "week_day": 6,
+                    "weeks": [
+                        1,
+                        2,
+                        3,
+                        8,
+                        9,
+                        10,
+                        14,
+                        15,
+                        17,
+                        18
+                    ],
+                    "sessions": [
+                        2,
+                        4,
+                        6,
+                        8,
+                        9,
+                        11,
+                        12
+                    ],
+                    "campus": "闵行",
+                    "classroom": "杨咏曼楼539"
+                }
+            ],
+            "identifier": "(2017-2018-2)-BI326-1",
+            "code": "BI326",
+            "holder_school": "上海交通大学玉米学院",
+            "name": "怡然的月饼：原理与展望",
+            "year": 2017,
+            "term": 2,
+            "target_grade": 2013,
+            "teacher": [
+                "蒋花生",
+                "郑朋友"
+            ],
+            "credit": 2.5,
+            "notes": "",
+            "student_number": 186
+        },
+        {
+            "arrangements": [
+                {
+                    "week_day": 1,
+                    "weeks": [
+                        4,
+                        8,
+                        10,
+                        12,
+                        17
+                    ],
+                    "sessions": [
+                        1,
+                        5,
+                        10,
+                        11
+                    ],
+                    "campus": "徐汇",
+                    "classroom": "工程馆415"
+                },
+                {
+                    "week_day": 5,
+                    "weeks": [
+                        2,
+                        3,
+                        10,
+                        11,
+                        13,
+                        15,
+                        16,
+                        18
+                    ],
+                    "sessions": [
+                        1,
+                        2,
+                        4,
+                        5,
+                        6,
+                        7,
+                        10,
+                        11,
+                        12,
+                        13
+                    ],
+                    "campus": "徐汇",
+                    "classroom": "新上院634"
+                },
+                {
+                    "week_day": 6,
+                    "weeks": [
+                        4,
+                        5,
+                        6,
+                        12,
+                        13,
+                        14,
+                        16,
+                        17
+                    ],
+                    "sessions": [
+                        1,
+                        3,
+                        4,
+                        5,
+                        7,
+                        11,
+                        12,
+                        13
+                    ],
+                    "campus": "卢湾",
+                    "classroom": "西二楼408"
+                }
+            ],
+            "identifier": "(2017-2018-2)-VE112-1",
+            "code": "VE112",
+            "holder_school": "上海交通大学发带学院",
+            "name": "高级娇气的火车",
+            "year": 2017,
+            "term": 2,
+            "target_grade": 2013,
+            "teacher": [
+                "韩可乐",
+                "钱咖啡"
+            ],
+            "credit": 6.0,
+            "notes": "",
+            "student_number": 132
+        },
+        {
+            "arrangements": [
+                {
+                    "week_day": 2,
+                    "weeks": [
+                        1,
+                        3,
+                        8,
+                        13,
+                        16
+                    ],
+                    "sessions": [
+                        3,
+                        7,
+                        8,
+                        10,
+                        11,
+                        12,
+                        13
+                    ],
+                    "campus": "卢湾",
+                    "classroom": "东二楼916"
+                },
+                {
+                    "week_day": 7,
+                    "weeks": [
+                        1,
+                        2,
+                        3,
+                        5,
+                        6,
+                        11,
+                        13,
+                        16,
+                        17,
+                        18
+                    ],
+                    "sessions": [
+                        1,
+                        2,
+                        6,
+                        10,
+                        11,
+                        13
+                    ],
+                    "campus": "闵行",
+                    "classroom": "木兰楼629"
+                }
+            ],
+            "identifier": "(2017-2018-2)-SZ017-1",
+            "code": "SZ017",
+            "holder_school": "上海交通大学冬瓜学院",
+            "name": "文艺的保温杯（A类）",
+            "year": 2017,
+            "term": 2,
+            "target_grade": 2016,
+            "teacher": [
+                "沈飞鸟",
+                "吴金鱼",
+                "孙哈密瓜",
+                "钱心锁"
+            ],
+            "credit": 4.0,
+            "notes": "",
+            "student_number": 224
+        },
+        {
+            "arrangements": [
+                {
+                    "week_day": 6,
+                    "weeks": [
+                        1,
+                        2,
+                        3,
+                        4,
+                        11,
+                        14,
+                        17,
+                        18
+                    ],
+                    "sessions": [
+                        1,
+                        3,
+                        4,
+                        5,
+                        7,
+                        8,
+                        10,
+                        12,
+                        13
+                    ],
+                    "campus": "闵行",
+                    "classroom": "上院237"
+                }
+            ],
+            "identifier": "(2017-2018-2)-XZ899-1",
+            "code": "XZ899",
+            "holder_school": "上海交通大学小海豚学院",
+            "name": "怕黑的银耳汤（A类）",
+            "year": 2017,
+            "term": 2,
+            "target_grade": 2016,
+            "teacher": [
+                "韩樱桃"
+            ],
+            "credit": 1.5,
+            "notes": "",
+            "student_number": 189
+        },
+        {
+            "arrangements": [
+                {
+                    "week_day": 6,
+                    "weeks": [
+                        1,
+                        2,
+                        3,
+                        5,
+                        7,
+                        9,
+                        11,
+                        12,
+                        16,
+                        17,
+                        18
+                    ],
+                    "sessions": [
+                        1,
+                        4,
+                        5,
+                        6,
+                        7,
+                        8,
+                        10,
+                        11,
+                        12,
+                        13
+                    ],
+                    "campus": "卢湾",
+                    "classroom": "东二楼131"
+                }
+            ],
+            "identifier": "(2017-2018-2)-OK840-1",
+            "code": "OK840",
+            "holder_school": "上海交通大学小甜瓜学院",
+            "name": "要减肥的发卡（A类）",
+            "year": 2017,
+            "term": 2,
+            "target_grade": 2017,
+            "teacher": [
+                "吴酸奶",
+                "卫外套"
+            ],
+            "credit": 3.0,
+            "notes": "",
+            "student_number": 167
+        }
+    ],
+    "generate_time": "2019-12-21 20:22:39"
+}
