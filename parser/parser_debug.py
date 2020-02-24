@@ -30,7 +30,7 @@ json_path = os.path.abspath(os.path.join(
     current_path, "../release/%d_%d_%d.json" % (start_year, start_year + 1, term)))
 
 counter = 0
-quick_go = True
+quick_go = False
 
 input("Going to start querying undergrad data. Undergraduates jAccount required. Press enter to continue ...")
 
@@ -43,7 +43,7 @@ for curric in query_undergrad_data(start_year, term):
             quick_go = True
     print("#", counter)
 
-quick_go = True
+quick_go = False
 
 input("Going to start querying postgrad data. Press enter to continue ...")
 
