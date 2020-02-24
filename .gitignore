@@ -105,3 +105,4 @@ venv.bak/
 .DS_Store
 parser/requester/__captcha.png
 parser/__captcha.png
+__captcha.png
