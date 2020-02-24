@@ -106,3 +106,4 @@ venv.bak/
 parser/requester/__captcha.png
 parser/__captcha.png
 __captcha.png
+*.ses
