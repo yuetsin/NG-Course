@@ -59,11 +59,14 @@ def query_undergrad_data(start_year, term):
             "name": course.name,
             "year": start_year,
             "term": term,
+            # TODO: fix target grade
             "target_grade": 0,
             "teacher": course.teacher,
             "credit": course.credit,
+            # TODO: add notes
             "notes": '',
             "student_number": course.xlass.students_elected,
+            # TODO: parse arrangements from ranges
             "arrangements": []
         })
 
