@@ -10,29 +10,20 @@
 上海交通大学本科生 + 研究生历年课程基本数据集。
 
 [数据样例（JSON）](https://github.com/yuetsin/NG-Course/blob/master/struct/structure.jsonnet) [Demo](https://yuetsin.github.io/index.html)
-## JSON 地址
+
+## JSON Link
 
 ### 2019 至 2020 学年
 
-* 秋季学期 [`https://raw.githubusercontent.com/yuetsin/NG-Course/master/release/2019_2020_1.json`](https://raw.githubusercontent.com/yuetsin/NG-Course/master/release/2019_2020_1.json)
-
-* 春季学期 [`https://raw.githubusercontent.com/yuetsin/NG-Course/master/release/2019_2020_2.json`](https://raw.githubusercontent.com/yuetsin/NG-Course/master/release/2019_2020_2.json)
+[秋季学期](https://raw.githubusercontent.com/yuetsin/NG-Course/master/release/2019_2020_1.json)、[春季学期](https://raw.githubusercontent.com/yuetsin/NG-Course/master/release/2019_2020_2.json)
 
 ### 2018 至 2019 学年
 
-* 秋季学期 [`https://raw.githubusercontent.com/yuetsin/NG-Course/master/release/2018_2019_1.json`](https://raw.githubusercontent.com/yuetsin/NG-Course/master/release/2018_2019_1.json)
-
-* 春季学期 [`https://raw.githubusercontent.com/yuetsin/NG-Course/master/release/2018_2019_2.json`](https://raw.githubusercontent.com/yuetsin/NG-Course/master/release/2018_2019_2.json)
-
-* 夏季学期 [`https://raw.githubusercontent.com/yuetsin/NG-Course/master/release/2018_2019_3.json`](https://raw.githubusercontent.com/yuetsin/NG-Course/master/release/2018_2019_3.json)
+[秋季学期](https://raw.githubusercontent.com/yuetsin/NG-Course/master/release/2018_2019_1.json)、[春季学期](https://raw.githubusercontent.com/yuetsin/NG-Course/master/release/2018_2019_2.json)、[夏季学期](https://raw.githubusercontent.com/yuetsin/NG-Course/master/release/2018_2019_3.json)
 
 ### 测试数据
 
-* 10 则 [`https://raw.githubusercontent.com/yuetsin/NG-Course/master/example/10.json`](https://raw.githubusercontent.com/yuetsin/NG-Course/master/example/10.json)
-
-* 100 则 [`https://raw.githubusercontent.com/yuetsin/NG-Course/master/example/100.json`](https://raw.githubusercontent.com/yuetsin/NG-Course/master/example/100.json)
-
-* 1000 则 [`https://raw.githubusercontent.com/yuetsin/NG-Course/master/example/1000.json`](https://raw.githubusercontent.com/yuetsin/NG-Course/master/example/1000.json)
+[10 则](https://raw.githubusercontent.com/yuetsin/NG-Course/master/example/10.json)、[100 则](https://raw.githubusercontent.com/yuetsin/NG-Course/master/example/100.json)、[1000 则](https://raw.githubusercontent.com/yuetsin/NG-Course/master/example/1000.json)
 
 ## Dump 数据
 
@@ -83,6 +74,8 @@ Line 23:    USES_PROXY = True
 
 - [ ] 课件及任何学习资料
 
+- [ ] 医学院课程数据
+
 ## 数据来源
 
 * 本科课程来自 [`electsysq` 查询接口](http://electsysq.sjtu.edu.cn/ReportServer/Pages/ReportViewer.aspx?%2fExamArrange%2fLessonArrangeForOthers&rs:Command=Render) 和 [教学信息服务网](http://i.sjtu.edu.cn/)
@@ -92,7 +85,3 @@ Line 23:    USES_PROXY = True
 * 研究生课程来自 [课表查询接口](http://www.yjs.sjtu.edu.cn:81/epstar/web/outer/KKBJ_CX/kkbj.jsp)
 
 > 版权所有 © 2019 上海交通大学研究生院 沪交ICP 备 50534
-
-## 已知问题
-
-- [ ] 不包含上海交通大学医学院课程数据。
