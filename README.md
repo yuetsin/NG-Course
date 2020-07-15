@@ -32,23 +32,6 @@
 ``` shell
 pip[3] install -r requirements.txt
 ```
-### 设定 Proxy（可选）
-
-> ⚠️无效的 Proxy 可能导致数据 Dump 不完全。
-
-1. 如无需启用代理，可将 `/NG-Course/parser/requester/request_postgrad.py` 中第 23 行修改为：
-``` python3
-Line 23:    USES_PROXY = False
-```
-> 由于研究生教学信息服务网配置，不采用代理查询需要 `4s` 冷却。总时间耗费大约在 6 分钟左右。
-
-2. 如需启用代理，则确保上述 `.py` 文件配置为
-``` python3
-Line 23:    USES_PROXY = True
-```
-并在 `/NG-Course/proxy/proxylist.1` 中填入 HTTP 代理 `ip:port`（一行一个）并保存。
-
-> 建议使用中国大陆 IP 代理来提高速度。
 
 ### 开始
 运行 `/NG-Course/parser/parser.py` 脚本来开始。
